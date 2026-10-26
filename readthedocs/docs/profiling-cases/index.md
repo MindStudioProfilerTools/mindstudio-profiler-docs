@@ -8,13 +8,13 @@ title: Profiling Cases
 
 <div class="grid cards" markdown>
 
--   **[集群场景动态 Profile 性能数据采集与分析指导](./dynamic-profile-case/)**
+-   **[集群场景动态 Profile 性能数据采集与分析指导](./dynamic-profile-case/index.md)**
 
     ---
 
     面向集群长任务场景，串联 dynamic_profile 动态采集、msprof-analyze 集群分析与 advisor、MindStudio Insight 汇总查看和指定 rank 下钻。
 
--   **[强化学习场景性能数据采集及分析指导](./reinforcement-learning-case/)**
+-   **[强化学习场景性能数据采集及分析指导](./reinforcement-learning-case/index.md)**
 
     ---
 
@@ -26,7 +26,7 @@ title: Profiling Cases
 
     面向 Operator 级别的 MFU 分析与调优场景，提供指标解读、分析流程以及常见优化方法。
 
--   **[Host Profiling 常用检测工具](./host-profiling-tools/)**
+-   **[Host Profiling 常用检测工具](./host-profiling-tools/index.md)**
 
     ---
 

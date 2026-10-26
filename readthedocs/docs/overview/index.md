@@ -1,4 +1,4 @@
-﻿---
+---
 hide:
   - navigation
   - toc
@@ -458,7 +458,13 @@ MindStudio 提供多种性能数据采集能力，可覆盖 AI 框架层、CANN 
 
 <div class="grid cards" markdown>
 
--   **[msProf](../msprof/)**
+-   **[新特性](../whats-new/index.md)**
+
+    ---
+
+    汇总各工具最新版本的新增特性，掌握工具链最新动态。
+
+-   **[msProf](../msprof/index.md)**
 
     ---
 
@@ -470,7 +476,7 @@ MindStudio 提供多种性能数据采集能力，可覆盖 AI 框架层、CANN 
 
     基于PyTorch框架开发的昇腾软硬件性能调优工具。
 
--   **[MSPTI](../mspti/)**
+-   **[MSPTI](../mspti/index.md)**
 
     ---
 
@@ -482,25 +488,25 @@ MindStudio 提供多种性能数据采集能力，可覆盖 AI 框架层、CANN 
 
     面向昇腾集群场景的在线性能监控与动态采集工具。
 
--   **[msprof-analyze](../msprof-analyze/)**
+-   **[msprof-analyze](../msprof-analyze/index.md)**
 
     ---
 
     面向 AI 训练与推理场景的性能分析工具，具备性能比对、集群分析、专家建议等功能。
 
--   **[MindStudio Insight](../msinsight/)**
+-   **[MindStudio Insight](../msinsight/index.md)**
 
     ---
 
     面向昇腾场景的可视化性能分析工具，适合查看 Timeline、算子清单及瓶颈定位结果。
 
--   **[msAgent](../msagent/)**
+-   **[msAgent](../msagent/index.md)**
 
     ---
 
     面向性能问题定位场景的智能 Agent 工具，可辅助开发者更快完成分析与归因。
  
-- **[Profiling Cases](../profiling-cases/)**
+- **[Profiling Cases](../profiling-cases/index.md)**
 
     ---
 

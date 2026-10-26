@@ -12,7 +12,7 @@ Ascend Pytorch Profiler 是面向 PyTorch 训练与在线推理场景的性能�
 - 需要完成常规性能采集，优先阅读 [使用 `torch_npu.profiler.profile` 采集](./source/user_guide/profile_api.md)。
 - 需要在训练或推理过程中按需触发采集，阅读 [dynamic_profile 动态采集](./source/user_guide/dynamic_profile.md)。
 - 采集完成后需要手动解析数据，阅读 [离线解析](./source/user_guide/offline_analyse.md)。
-- 需要查参数、配置文件和扩展能力，阅读 [参考说明](./source/reference/index.md)。
+- 需要查参数、配置文件和扩展能力，阅读 [使用指南](./source/user_guide/index.md) 与 [高级特性](./source/advanced_features/index.md)。
 
 ## 典型流程
 
