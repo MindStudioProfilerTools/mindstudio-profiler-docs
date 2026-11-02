@@ -161,3 +161,31 @@
   color: var(--mstt-primary);
   font-weight: 600;
 }
+
+/* overview 页：性能数据类型说明表格后的交互式 Trace 示例入口。 */
+.md-typeset .trace-demo {
+  margin: 1.2rem 0 1.6rem;
+  padding: 1rem 1.2rem 1.1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid color-mix(in srgb, var(--md-default-fg-color) 10%, transparent);
+  border-left: 3px solid var(--mstt-primary);
+  border-radius: 0.6rem;
+  background: rgba(0, 180, 245, 0.04);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .trace-demo {
+  background: rgba(0, 180, 245, 0.08);
+}
+
+.md-typeset .trace-demo > p:first-child {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+}
+
+.md-typeset .trace-demo > p {
+  margin: 0 0 0.9rem;
+}
+
+.md-typeset .trace-demo .md-button {
+  margin: 0;
+}
