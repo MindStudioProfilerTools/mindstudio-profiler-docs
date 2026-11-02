@@ -415,6 +415,20 @@ MindStudio 提供多种性能数据采集能力，可覆盖 AI 框架层、CANN 
 | Communication | 记录各个通信域下的通信算子信息，包括通信带宽、数据传输量等。 |
 | Overlap Analysis | 按 NPU 是否执行通信或计算任务进行划分，拆解为计算、通信、通信未与计算掩盖、空闲四个维度，用于评估计算与通信的并行效率。 |
 
+上表中的数据类型最终以 Trace（timeline）形式呈现，可参考下列示例页面了解时间线视图的组织方式与各层级数据的呈现形式。
+
+<div class="trace-demo" markdown>
+
+**Chrome Tracing 交互式示例**
+
+页面使用 Chrome 内置的 Tracing 查看器（`chrome://tracing`）界面，包含以下两课：
+
+- **chrome tracing 基础操作介绍**：时间轴怎么读、缩放与平移、鼠标模式切换、点选色块查看耗时和参数。
+- **trace_view.json / msprof.json 内容介绍**：标题里的进程号与 device id、框架层与 CANN 层的列、算子内部的入队出队关系。
+
+[打开交互式示例 :material-open-in-new:](../assets/chrome-tracing/chrome-tracing-tutorial.html){ .md-button .md-button--primary target="_blank" rel="noopener" }
+
+</div>
 
 ## 相关入口
 
