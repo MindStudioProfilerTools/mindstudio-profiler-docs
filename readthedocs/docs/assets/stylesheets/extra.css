@@ -61,6 +61,19 @@
   border-color: var(--mstt-primary-dark);
 }
 
+/* 首页标题仅用于页面结构，视觉上由 logo + wordmark 承担。 */
+.md-typeset .home-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .home-wordmark {
   margin: 1rem 0 0.5rem;
   text-align: center;
@@ -89,6 +102,68 @@
   gap: 0.75rem;
   flex-wrap: wrap;
   margin: 0 0 2rem;
+}
+
+/* 首页 News 轮播：仿 vLLM 官网，左侧固定「News」，右侧条目淡入淡出轮换。 */
+.md-typeset .home-news {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: -0.5rem auto 2rem;
+  max-width: 52rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.md-typeset .home-news__label {
+  flex: none;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* 所有条目叠放在同一网格单元，容器尺寸取最长条目，轮换时不抖动。
+   选择器需高于 Material 的 .md-typeset ul:not([hidden]) { display: flow-root }。 */
+.md-typeset .home-news .home-news__list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .home-news__item {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+  opacity: 0;
+  transform: translateY(0.3rem);
+  /* 旧条目先淡出，新条目延迟淡入，避免两条文案短暂重叠。 */
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+}
+
+.md-typeset .home-news__item.is-active {
+  opacity: 1;
+  transform: none;
+  transition-delay: 180ms;
+  pointer-events: auto;
+}
+
+.md-typeset .home-news__spark {
+  flex: none;
+  line-height: 1.2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .home-news__item {
+    transform: none;
+    transition: none;
+  }
 }
 
 .md-typeset .grid.cards > ul > li,
