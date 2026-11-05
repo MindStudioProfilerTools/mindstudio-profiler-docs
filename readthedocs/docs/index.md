@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-# Welcome to
+<h1 class="home-title">MindStudio Profiler Tools</h1>
 
 <figure markdown="span">
   ![](./assets/logos/mindstudio.jpg){ align="center" alt="MindStudio" class="home-logo" width="112" }
@@ -20,6 +20,28 @@ hide:
   <a class="md-button md-button--primary" href="https://www.hiascend.com/developer/software/mindstudio">进入昇腾社区</a>
   <a class="md-button" href="./overview/">查看工具全景</a>
 </p>
+
+<div class="home-news" data-interval="5200">
+  <span class="home-news__label">News 🔥</span>
+  <ul class="home-news__list">
+    <li class="home-news__item is-active">
+      <span class="home-news__spark" aria-hidden="true">✨</span>
+      <span>上线了 <a href="./assets/chrome-tracing/chrome-tracing-tutorial.html" target="_blank" rel="noopener">Chrome Tracing 交互式示例</a>，用 chrome://tracing 界面演示时间线阅读与各层级数据呈现</span>
+    </li>
+    <li class="home-news__item">
+      <span class="home-news__spark" aria-hidden="true">✨</span>
+      <span>msProf 26.2.0 发布：新增 Host CPU 频率采集与全 C 化解析流程（<a href="./whats-new/#msprof">了解详情</a>）</span>
+    </li>
+    <li class="home-news__item">
+      <span class="home-news__spark" aria-hidden="true">✨</span>
+      <span>msAgent 26.2.0 支持一键安装，并新增 15+ 领域 Skill（<a href="./whats-new/#msagent">了解详情</a>）</span>
+    </li>
+    <li class="home-news__item">
+      <span class="home-news__spark" aria-hidden="true">✨</span>
+      <span>MindStudio Insight 26.2.0 支持原生 PyTorch Profiler Trace 导入（<a href="./whats-new/#mindstudio-insight">了解详情</a>）</span>
+    </li>
+  </ul>
+</div>
 
 <style>
 .ai-arch-container {
@@ -283,6 +305,93 @@ hide:
         </div>
     </div>
 </div>
+
+<script>
+(function () {
+    const DEFAULT_INTERVAL = 5200;
+
+    function initHomeNews() {
+        document.querySelectorAll('.home-news').forEach((news) => {
+            if (news.dataset.initialized === 'true') {
+                return;
+            }
+
+            const items = Array.from(news.querySelectorAll('.home-news__item'));
+            if (items.length < 2) {
+                return;
+            }
+
+            news.dataset.initialized = 'true';
+
+            const interval = Math.max(2000, parseInt(news.dataset.interval, 10) || DEFAULT_INTERVAL);
+            let index = items.findIndex((item) => item.classList.contains('is-active'));
+            if (index < 0) {
+                index = 0;
+            }
+            let timer = null;
+
+            const setActive = (next) => {
+                items[index].classList.remove('is-active');
+                items[index].setAttribute('aria-hidden', 'true');
+                items[index].setAttribute('inert', '');
+
+                index = (next + items.length) % items.length;
+
+                items[index].classList.add('is-active');
+                items[index].removeAttribute('aria-hidden');
+                items[index].removeAttribute('inert');
+            };
+
+            const stop = () => {
+                if (timer) {
+                    window.clearInterval(timer);
+                    timer = null;
+                }
+            };
+
+            const start = () => {
+                if (timer) {
+                    return;
+                }
+                timer = window.setInterval(() => {
+                    // instant navigation 会替换页面节点，定时器需随之退出
+                    if (!document.body.contains(news)) {
+                        stop();
+                        return;
+                    }
+                    setActive(index + 1);
+                }, interval);
+            };
+
+            // 初始化：除当前条目外均隐藏，且不可聚焦/点击
+            items.forEach((item, i) => {
+                if (i !== index) {
+                    item.setAttribute('aria-hidden', 'true');
+                    item.setAttribute('inert', '');
+                }
+            });
+
+            // 悬停或键盘聚焦时暂停轮播，便于阅读
+            news.addEventListener('mouseenter', stop);
+            news.addEventListener('mouseleave', start);
+            news.addEventListener('focusin', stop);
+            news.addEventListener('focusout', start);
+
+            start();
+        });
+    }
+
+    if (typeof document$ !== 'undefined' && typeof document$.subscribe === 'function') {
+        document$.subscribe(initHomeNews);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHomeNews, { once: true });
+    } else {
+        initHomeNews();
+    }
+})();
+</script>
 
 <script>
 (function () {
